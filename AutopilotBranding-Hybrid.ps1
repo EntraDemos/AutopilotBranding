@@ -63,7 +63,7 @@ Log "Setting up Autopilot theme"
 Mkdir "C:\Windows\Resources\OEM Themes" -Force | Out-Null
 Copy-Item "$installFolder\Autopilot.theme" "C:\Windows\Resources\OEM Themes\Autopilot.theme" -Force
 Mkdir "C:\Windows\web\wallpaper\Autopilot" -Force | Out-Null
-Copy-Item "$installFolder\Autopilot.jpg" "C:\Windows\web\wallpaper\Autopilot\Autopilot.jpg" -Force
+Copy-Item "$installFolder\Autopilot-Hybrid.jpg" "C:\Windows\web\wallpaper\Autopilot\Autopilot-Hybrid.jpg" -Force
 Log "Setting Autopilot theme as the new user default"
 reg.exe add "HKLM\TempUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes" /v InstallTheme /t REG_EXPAND_SZ /d "%SystemRoot%\resources\OEM Themes\Autopilot.theme" /f | Out-Host
 
@@ -80,7 +80,6 @@ reg.exe add "HKLM\TempUser\Software\Policies\Microsoft\Windows\CloudContent" /v 
 reg.exe unload HKLM\TempUser | Out-Host
 
 # STEP2.5: Windows User Defaults
-# Added Code for start men placement
 reg.exe load HKLM\TempUser "C:\Users\Default\NTUSER.DAT" | Out-Host
 reg.exe add "HKLM\TempUser\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTaskbarMode /t REG_DWORD /d 1 /f | Out-Host
 reg.exe add "HKLM\TempUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowTaskViewButton /t REG_DWORD /d 0 /f | Out-Host
